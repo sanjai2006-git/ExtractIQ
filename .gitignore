@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+.env
+extraction.db
+storage/*
+!storage/.gitkeep

@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Invoice Intelligence Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <aside class="sidebar">
+
+      <div class="upload-section">
+        <h2>Upload PDF</h2>
+
+        <input
+          type="file"
+          id="pdf-file"
+          accept=".pdf,application/pdf"
+        >
+
+        <button id="upload-btn" class="btn-upload">
+          Upload & Extract
+        </button>
+
+        <p id="upload-status"></p>
+      </div>
+
+      <div class="sidebar-header">
+        <h1>Review queue</h1>
+        <p id="queue-count">Loading…</p>
+      </div>
+
+      <div class="queue-list" id="queue-list"></div>
+
+    </aside>
+
+    <main class="main" id="main">
+
+      <!-- Dashboard -->
+      <section class="dashboard" id="dashboard">
+
+        <header class="dashboard-header">
+          <div>
+            <h1>Invoice Intelligence</h1>
+            <p>Monitor document extraction and review progress.</p>
+          </div>
+
+          <button id="refresh-dashboard" type="button">
+            Refresh
+          </button>
+        </header>
+
+        <!-- Summary cards -->
+        <div class="dashboard-cards">
+
+          <article class="stat-card">
+            <p>Total Invoices</p>
+            <h2 id="total-invoices">—</h2>
+            <span>All uploaded documents</span>
+          </article>
+
+          <article class="stat-card">
+            <p>Successfully Extracted</p>
+            <h2 id="extracted-invoices">—</h2>
+            <span>Completed extractions</span>
+          </article>
+
+          <article class="stat-card">
+            <p>Pending Review</p>
+            <h2 id="pending-invoices">—</h2>
+            <span>Awaiting your decision</span>
+          </article>
+
+          <article class="stat-card">
+            <p>Rejected</p>
+            <h2 id="rejected-invoices">—</h2>
+            <span>Rejected documents</span>
+          </article>
+
+        </div>
+
+        <!-- Invoice history -->
+        <section class="history-section">
+          <div class="history-header">
+            <div>
+              <h2>Invoice History</h2>
+              <p>Review previously uploaded documents.</p>
+            </div>
+
+            <input
+              type="search"
+              id="invoice-search"
+              placeholder="Search invoices..."
+              aria-label="Search invoice history"
+            >
+          </div>
+
+          <div class="table-wrapper">
+            <table id="invoice-history-table">
+              <thead>
+                <tr>
+                  <th>Document</th>
+                  <th>Invoice Number</th>
+                  <th>Vendor</th>
+                  <th>Confidence</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody id="invoice-history-body">
+                <tr>
+                  <td colspan="6">
+                    Invoice history will load here.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- Existing document review area -->
+      <section class="document-review" id="document-review">
+        <div class="main-empty">
+          Select a document from the queue to review it.
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
